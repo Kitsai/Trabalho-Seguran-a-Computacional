@@ -1,7 +1,5 @@
 [
   {
-    "directory": "../include",
-    "command": "g++ -std=c++17 -I. -I..",
-    "file": "./include/"
+    "command": "g++ -std=c++23 -Iinclude -I../include"
   }
 ]
