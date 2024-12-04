@@ -19,5 +19,7 @@ public:
 private:
   char encrypt_char(const char c);
   block apply_encryption(block b);
+  char decrypt_char(const char c);
+  block apply_decryption(block b);
 };
 #endif // !SDES_H
