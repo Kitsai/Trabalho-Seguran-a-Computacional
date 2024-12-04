@@ -11,8 +11,10 @@ private:
   half_block r;
 
 public:
-  char apply(char caracter);
+  block apply(block caracter);
   FeistelRound(sub_key kx);
+  FeistelRound();
+  void set_key(sub_key kx);
 
 private:
   half_block fFunc(half_block block);

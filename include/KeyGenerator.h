@@ -8,6 +8,7 @@
 
 class KeyGenerator {
 public:
-  std::pair<sub_key, sub_key> generateSubKeys(main_key chave);
+  [[nodiscard]] static std::pair<sub_key, sub_key>
+  generateSubKeys(const main_key chave);
 };
 #endif // !KEY_GENERATOR_H

@@ -12,6 +12,6 @@ public:
   [[nodiscard]] static block inverse_ip(const block bloco);
   [[nodiscard]] static block ep(const half_block bloco);
   [[nodiscard]] static half_block p4(const half_block bloco);
-  [[nodiscard]] static block switch_halfs(const sub_key chave);
+  [[nodiscard]] static block switch_halfs(const block bloco);
 };
 #endif // !PERMUTATOR_H
