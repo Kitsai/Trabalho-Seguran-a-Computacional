@@ -5,6 +5,7 @@
 #include <bitset>
 
 using main_key = std::bitset<10>;
+using half_main_key = std::bitset<5>;
 using sub_key = std::bitset<8>;
 using block = std::bitset<8>;
 using half_block = std::bitset<4>;

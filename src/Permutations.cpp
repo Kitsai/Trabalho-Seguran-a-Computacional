@@ -3,7 +3,7 @@
 main_key Permutations::p10(const main_key chave) {
   main_key ret;
   for (int i = 0; i < 10; i++)
-    ret[i] = chave[p10_order[i]];
+    ret[9 - i] = chave[9 - p10_order[i]];
 
   return ret;
 }
@@ -11,7 +11,7 @@ main_key Permutations::p10(const main_key chave) {
 sub_key Permutations::p8(const main_key chave) {
   sub_key ret;
   for (int i = 0; i < 8; i++)
-    ret[i] = chave[p8_order[i]];
+    ret[7 - i] = chave[9 - p8_order[i]];
 
   return ret;
 }
@@ -19,7 +19,7 @@ sub_key Permutations::p8(const main_key chave) {
 block Permutations::ip(const block bloco) {
   block ret;
   for (int i = 0; i < 8; i++)
-    ret[i] = bloco[ip_order[i]];
+    ret[7 - i] = bloco[7 - ip_order[i]];
 
   return ret;
 }
@@ -27,7 +27,7 @@ block Permutations::ip(const block bloco) {
 block Permutations::inverse_ip(const block bloco) {
   block ret;
   for (int i = 0; i < 8; i++)
-    ret[i] = bloco[inverse_ip_order[i]];
+    ret[7 - i] = bloco[7 - inverse_ip_order[i]];
 
   return ret;
 }
@@ -35,7 +35,7 @@ block Permutations::inverse_ip(const block bloco) {
 block Permutations::ep(const half_block bloco) {
   block ret;
   for (int i = 0; i < 8; i++)
-    ret[i] = bloco[ep_order[i]];
+    ret[7 - i] = bloco[7 - ep_order[i]];
 
   return ret;
 }
@@ -43,7 +43,7 @@ block Permutations::ep(const half_block bloco) {
 half_block Permutations::p4(const half_block bloco) {
   half_block ret;
   for (int i = 0; i < 4; i++)
-    ret[i] = bloco[p4_order[i]];
+    ret[3 - i] = bloco[3 - p4_order[i]];
 
   return ret;
 }
@@ -61,6 +61,12 @@ block Permutations::switch_halfs(const block bloco) {
 
 half_block Permutations::ls1(const half_block bloco) {
   half_block ret = bloco << 1;
-  ret[3] = bloco[0];
+  ret[0] = bloco[3];
+  return ret;
+}
+
+half_main_key Permutations::ls1(const half_main_key bloco) {
+  half_main_key ret = bloco << 1;
+  ret[0] = bloco[4];
   return ret;
 }
