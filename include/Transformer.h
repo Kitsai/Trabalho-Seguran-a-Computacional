@@ -2,6 +2,7 @@
 #define TRANSFORMER_H
 
 #include "defines.h"
+#include <string>
 #include <utility>
 
 class Transformer {
@@ -13,5 +14,7 @@ public:
   static half_block combine(const quarter_block b1, const quarter_block b2);
   static block combine(const half_block b1, const half_block b2);
   static main_key combine(const half_main_key k1, const half_main_key k2);
+  static block transform_input(const std::string entrada);
+  static main_key transform_key(const std::string chave);
 };
 #endif // !TRANSFORMER_H

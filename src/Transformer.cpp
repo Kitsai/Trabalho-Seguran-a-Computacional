@@ -1,4 +1,6 @@
 #include "../include/Transformer.h"
+#include <iostream>
+#include <string>
 #include <utility>
 
 std::pair<quarter_block, quarter_block>
@@ -69,4 +71,38 @@ main_key Transformer::combine(const half_main_key left,
     ret[i] = (i < 5) ? right[i] : left[i - 5];
 
   return ret;
+}
+
+block Transformer::transform_input(const std::string entrada) {
+  if (entrada.size() == 1) {
+    try {
+      return block(entrada[0]);
+    } catch (...) {
+      std::cerr << "Caracter inválido!\n";
+    }
+  }
+  if (entrada.size() == 8) {
+    try {
+      return block(entrada);
+    } catch (...) {
+      std::cerr << "Caracter inválido em entrada de 8 caracteres.\n";
+    }
+  }
+
+  std::cerr << "Entrada precisa ser binário de 8 bits ou caracter unico.\n";
+  exit(1);
+}
+
+main_key Transformer::transform_key(const std::string chave) {
+  if (chave.size() != 10) {
+    std::cerr << "Tamanho da chave incorreto. Chave deve ter 10 bits\n";
+    exit(1);
+  }
+
+  try {
+    return main_key(chave);
+  } catch (...) {
+    std::cerr << "Chave inválida!\n";
+    exit(1);
+  }
 }
