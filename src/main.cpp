@@ -32,6 +32,8 @@ int main() {
       sdes.encrypt(bloco);
     else if (mode == 2)
       sdes.decrypt(bloco);
+    else
+      std::cout << "opção inválida.\n";
   } while (mode == 1 || mode == 2);
   std::cout << chave << ' ' << bloco << '\n';
 
