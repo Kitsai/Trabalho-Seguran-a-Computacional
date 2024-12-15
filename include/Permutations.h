@@ -15,5 +15,6 @@ public:
   static block switch_halfs(const block bloco);
   static half_block ls1(const half_block bloco);
   static half_main_key ls1(const half_main_key chave);
+  static half_main_key ls2(const half_main_key chave);
 };
 #endif // !PERMUTATOR_H

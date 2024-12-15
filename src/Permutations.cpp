@@ -65,8 +65,16 @@ half_block Permutations::ls1(const half_block bloco) {
   return ret;
 }
 
-half_main_key Permutations::ls1(const half_main_key bloco) {
-  half_main_key ret = bloco << 1;
-  ret[0] = bloco[4];
+half_main_key Permutations::ls1(const half_main_key chave) {
+  half_main_key ret = chave << 1;
+  ret[0] = chave[4];
   return ret;
 }
+
+half_main_key Permutations::ls2(const half_main_key chave){
+  half_main_key ret = chave << 2;
+  ret[0] = chave[3];
+  ret[1] = chave[4];
+  return ret;
+}
+
