@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+#include "../include/KeyGenerator.h"
 #include "../include/Sdes.h"
 #include "../include/Transformer.h"
 
@@ -11,6 +12,8 @@ int main() {
   block bloco;
 
   int mode;
+
+  block result;
 
   std::cout << "Entre com sua chave: ";
   std::getline(std::cin, chave_st);
@@ -27,15 +30,17 @@ int main() {
   std::cout << "Digite 1 para encriptar e 2 para decriptar: ";
   std::cin >> mode;
 
-  do {
-    if (mode == 1)
-      sdes.encrypt(bloco);
-    else if (mode == 2)
-      sdes.decrypt(bloco);
-    else
-      std::cout << "opção inválida.\n";
-  } while (mode == 1 || mode == 2);
-  std::cout << chave << ' ' << bloco << '\n';
+  if (mode == 1) {
+    std::cout << "Starting encryption\n";
+    result = sdes.encrypt(bloco);
+  } else if (mode == 2)
+    result = sdes.decrypt(bloco);
+  else
+    std::cout << "opção inválida.\n";
 
+  std::cout << "Chave: " << chave << " Entrada: " << bloco << '\n';
+  auto subkeys = KeyGenerator::generateSubKeys(chave);
+  std::cout << "Subchaves: " << subkeys.first << ' ' << subkeys.second << '\n';
+  std::cout << "Result: " << result << '\n';
   return 0;
 }

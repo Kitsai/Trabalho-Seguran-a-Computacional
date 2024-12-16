@@ -35,7 +35,7 @@ block Permutations::inverse_ip(const block bloco) {
 block Permutations::ep(const half_block bloco) {
   block ret;
   for (int i = 0; i < 8; i++)
-    ret[7 - i] = bloco[7 - ep_order[i]];
+    ret[7 - i] = bloco[3 - ep_order[i]];
 
   return ret;
 }
@@ -71,10 +71,9 @@ half_main_key Permutations::ls1(const half_main_key chave) {
   return ret;
 }
 
-half_main_key Permutations::ls2(const half_main_key chave){
+half_main_key Permutations::ls2(const half_main_key chave) {
   half_main_key ret = chave << 2;
   ret[0] = chave[3];
   ret[1] = chave[4];
   return ret;
 }
-
