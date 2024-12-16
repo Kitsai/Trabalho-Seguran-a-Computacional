@@ -31,14 +31,13 @@ int main() {
   std::cin >> mode;
 
   if (mode == 1) {
-    std::cout << "Starting encryption\n";
     result = sdes.encrypt(bloco);
   } else if (mode == 2)
     result = sdes.decrypt(bloco);
   else
     std::cout << "opção inválida.\n";
 
-  std::cout << "Chave: " << chave << " Entrada: " << bloco << '\n';
+  std::cout << "\nChave: " << chave << " Entrada: " << bloco << '\n';
   auto subkeys = KeyGenerator::generateSubKeys(chave);
   std::cout << "Subchaves: " << subkeys.first << ' ' << subkeys.second << '\n';
   std::cout << "Result: " << result << '\n';
